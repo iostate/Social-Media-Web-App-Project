@@ -17,6 +17,8 @@ class PostsNew extends Component {
 	}
 }
 // ensure that the string you assign to form is unique
+// Creates a decorator with which you use redux-form to connect your form component to Redux. 
+// It takes a config parameter which lets you configure your form.
 export default reduxForm({
 	form: 'PostsNewForm'
 })(PostsNew);
