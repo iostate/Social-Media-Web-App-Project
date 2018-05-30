@@ -1,15 +1,22 @@
 import React, {Component} from 'react';
-import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
 
 class PostsNew extends Component {
 
 	render() {
 		return (
-			<div>
-				<h3>PostsNew!</h3>
-			</div>
+			<form>
+			// https://redux-form.com/7.3.0/docs/api/field.md/ 
+			// 2 things needed for Field component: Name, component (textarea, input, radio, select), 
+				<Field 
+					name="title"
+					component={}
+				/>
+			</form>
 		);
 	}
 }
-
-export default PostsNew;
+// ensure that the string you assign to form is unique
+export default reduxForm({
+	form: 'PostsNewForm'
+})(PostsNew);
