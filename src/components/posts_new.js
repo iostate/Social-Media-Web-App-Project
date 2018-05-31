@@ -37,7 +37,7 @@ class PostsNew extends Component {
 			}
 				<Field
 					label="Title"
-										name="title"
+					name="title"
 					component={this.renderField}
 				/>
 				<Field 
@@ -50,7 +50,7 @@ class PostsNew extends Component {
 					name="content"
 					component={this.renderField}
 				/>
-			</form>
+			</form> 
 		);
 	}
 }
