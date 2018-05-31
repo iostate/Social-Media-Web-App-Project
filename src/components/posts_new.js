@@ -10,19 +10,19 @@ class PostsNew extends Component {
 	 * 						with the actual Field component. 
 	 */
 	renderFieldComponent(field) {
-		return(
-			<div>
-			{
-				// field.input contains event handlers and props
-			}
-			
+		return (
+			<div className="form-group">
+				<label>Title</label>
+				{
+					// field.input contains event handlers and props
+				}
 				<input 
-				type="text"
+					className="form-control"
+					type="text"
 					{...field.input}
 				/>
 			</div>
 		);
-
 	}
 
 
@@ -33,7 +33,7 @@ class PostsNew extends Component {
 				// https://redux-form.com/7.3.0/docs/api/field.md/ 
 				// 2 things needed for Field component: Name, component (textarea, input, radio, select), 
 			}
-			<Field 
+				<Field
 					name="title"
 					component={this.renderFieldComponent}
 				/>
