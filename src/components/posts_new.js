@@ -32,16 +32,22 @@ class PostsNew extends Component {
 			<form>
 			{
 				// https://redux-form.com/7.3.0/docs/api/field.md/ 
-				// 2 things needed for Field component: Name, component (textarea, input, radio, select), 
+				// 2 things needed for Field component: Name, component (textarea, input, radio, select)
+				// Also can pass ARBITRARY PROPERTIES that will automatically get passed down 
 			}
 				<Field
 					label="Title"
-					name="title"
+										name="title"
 					component={this.renderField}
 				/>
 				<Field 
 					label="Tags"
 					name="tags"
+					component={this.renderField}
+				/>
+				<Field 
+					label="Post Content"
+					name="content"
 					component={this.renderField}
 				/>
 			</form>
