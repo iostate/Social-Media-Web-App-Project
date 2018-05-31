@@ -8,6 +8,7 @@ import {BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import reducers from './reducers';
 import PostsIndex from './components/posts_index';
+// import PostsNew from './components/posts_new';
 import PostsNew from './components/posts_new';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);

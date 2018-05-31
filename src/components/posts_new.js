@@ -3,14 +3,39 @@ import { Field, reduxForm } from 'redux-form';
 
 class PostsNew extends Component {
 
+	/**
+	 * Renders JSX for the Field component. 
+	 * @param {*} field Contains event handlers and other things for the component property of 
+	 * 						the Field component of redux-form.CONNECTS the JSX that renders the Field component 
+	 * 						with the actual Field component. 
+	 */
+	renderFieldComponent(field) {
+		return(
+			<div>
+			{
+				// field.input contains event handlers and props
+			}
+			
+				<input 
+				type="text"
+					{...field.input}
+				/>
+			</div>
+		);
+
+	}
+
+
 	render() {
 		return (
 			<form>
-			// https://redux-form.com/7.3.0/docs/api/field.md/ 
-			// 2 things needed for Field component: Name, component (textarea, input, radio, select), 
-				<Field 
+			{
+				// https://redux-form.com/7.3.0/docs/api/field.md/ 
+				// 2 things needed for Field component: Name, component (textarea, input, radio, select), 
+			}
+			<Field 
 					name="title"
-					component={}
+					component={this.renderFieldComponent}
 				/>
 			</form>
 		);
