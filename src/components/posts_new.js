@@ -4,25 +4,29 @@ import { Field, reduxForm } from 'redux-form';
 class PostsNew extends Component {
 
 	/**
-	 * A generalized function that renders JSX for various Field components. 
-	 * Titles are dynamically rendered, and pulled from the props passed to the Field
-	 * component. 
-	 * @param {*} field Contains event handlers and other things for the component property of 
-	 * 						the Field component of redux-form.CONNECTS the JSX that renders the Field component 
-	 * 						with the actual Field component. 
+	 * A generalized function that renders JSX for Field components. 
+	 * @param {*} field Contains event handlers and other things for the component 
+	 * 						property of the Field component. The big picture is that field 
+	 * 						parameter CONNECTS the JSX that renders the Field component with 
+	 * 						the actual Field component. 
 	 */
 	renderField(field) {
 		return (
 			<div className="form-group">
 				<label>{field.label}</label>
 				{
-					// field.input contains event handlers and props
+					// field.input contains event handlers and props. 
+					// Any arbitrary properties passed into the Field
+					// component will be passed to the input tag
+					// using {...field.input}
 				}
 				<input 
 					className="form-control"
 					type="text"
 					{...field.input}
 				/>
+				{/* shows the error messages created in the validate fn */}
+				 {field.meta.error}
 			</div>
 		);
 	}
@@ -41,8 +45,8 @@ class PostsNew extends Component {
 					component={this.renderField}
 				/>
 				<Field 
-					label="Tags"
-					name="tags"
+					label="Categories"
+					name="categories"
 					component={this.renderField}
 				/>
 				<Field 
@@ -50,13 +54,42 @@ class PostsNew extends Component {
 					name="content"
 					component={this.renderField}
 				/>
+				<button className="btn btn-primary" type="submit">Submit</button>
 			</form> 
 		);
 	}
 }
-// ensure that the string you assign to form is unique
-// Creates a decorator with which you use redux-form to connect your form component to Redux. 
-// It takes a config parameter which lets you configure your form.
-export default reduxForm({
+
+/**
+ * Used to validate the input from the user. This function will be called
+ * everytime a user attempts to validate a form.
+ * @param {*} values 
+ */
+function validate(values) {
+	// console.log(values); // --> { title: 'asdf', categories: 'asdf', content: 'asdf' } 
+	const errors = {};
+
+	// The properties of values come from name property of Field component 
+	if ( !values.title ) {
+		errors.title = "Enter a title";
+	}
+	if ( !values.categories ) {
+		errors.categories = "Enter some categories";
+	}
+	if  (!values.content ) {
+		errors.content = "Enter some content";
+	}
+
+	// If errors is empty, the form is OK for submittal
+	// If errors has any properties, redux form assumes form is invalid
+	return errors;
+}
+
+
+// Note: Make sure that string assigned to form is UNIQUE
+// reduxForm is a decorator that CONNECTS your form to redux 
+// It takes a function as a parameter. Configuration stuff goes inside the function.
+ export default reduxForm({
+	validate,
 	form: 'PostsNewForm'
 })(PostsNew);
