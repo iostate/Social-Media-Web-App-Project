@@ -6,9 +6,9 @@ class PostsNew extends Component {
   /**
    * A generalized function that renders JSX for Field components. 
    * @param {*} field Contains event handlers and other things for the component 
-   * 						property of the Field component. The big picture is that field 
-   * 						parameter CONNECTS the JSX that renders the Field component with 
-   * 						the actual Field component. 
+   * 	property of the Field component. The big picture is that field 
+   * 	parameter CONNECTS the JSX that renders the Field component with 
+   * 	the actual Field component. 
    */
   renderField(field) {
     return (
