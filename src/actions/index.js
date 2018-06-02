@@ -4,6 +4,7 @@ import { func } from 'prop-types';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
 export const FETCH_POST = 'FETCH_POST';
+export const DELETE_POST = 'DELETE_POST';
 
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const API_KEY = '?key=PAPERCLIP2134';
@@ -30,7 +31,7 @@ export function fetchPosts() {
  */
 export function createPost(values, callback) {
 	const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
-		.then(() => callback());
+		.then( () => callback() );
 
 	return {
 		type: CREATE_POST,
@@ -46,6 +47,20 @@ export function fetchPost(id) {
 
 	return {
 		type: FETCH_POST,
+		payload: request
+	};
+}
+
+/**
+ * Deletes a post from the API. 
+ * @param {*} id ID of the post that will be deleted. 
+ */
+export function deletePost(id, callback) {
+	const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`)
+		.then( () => callback() );
+
+	return {
+		type: DELETE_POST,
 		payload: request
 	};
 }
