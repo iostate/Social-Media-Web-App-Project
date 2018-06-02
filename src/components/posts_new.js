@@ -11,8 +11,10 @@ class PostsNew extends Component {
    * 	the actual Field component. 
    */
   renderField(field) {
+    const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
+
     return (
-      <div className="form-group">
+      <div className="form-group has-danger">
         <label>{field.label}</label>
         {
           // field.input contains event handlers and props. 
@@ -26,7 +28,9 @@ class PostsNew extends Component {
           {...field.input}
         />
         {/* shows the error messages created in the validate fn */}
-         {field.meta.error}
+        <div className="text-help"> 
+          {field.meta.touched ? field.meta.error : ''}
+        </div>
       </div>
     );
   }
