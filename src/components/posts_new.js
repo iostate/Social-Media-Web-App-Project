@@ -41,7 +41,15 @@ class PostsNew extends Component {
     );
   }
 
+  /**
+   * Post new post and after it has successfully 
+   * posted, navigate user back to PostsIndex.  
+   *
+   * @param {*} values Object containing the values of the form. 
+   * @memberof PostsNew
+   */
   onSubmit(values) {
+    this.props.history.push('/'); 
     this.props.createPost(values);
   }
 
