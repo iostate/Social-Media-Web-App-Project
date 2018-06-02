@@ -13,10 +13,11 @@ class PostsNew extends Component {
   renderField(field) {
     // destructuring field.meta.touched and field.meta.error in order to clean up code
     const { meta: { touched, error } } = field;
+    // className for the input fields
     const className = `form-group ${touched && error ? 'has-danger' : ''}`;
 
     return (
-      <div className="form-group has-danger">
+      <div className={className}>
         <label>{field.label}</label>
         {
           // field.input contains event handlers and props. 
