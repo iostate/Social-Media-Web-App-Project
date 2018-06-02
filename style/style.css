@@ -1,3 +1,7 @@
 form a {
 	margin-left: 5px;
 }
+/* #deleteButton is found in posts_show.js */
+#deleteButton {
+	margin-left: 200px;
+}
