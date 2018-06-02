@@ -31,9 +31,22 @@ class PostsNew extends Component {
     );
   }
 
+  onSubmit(values) {
+    console.log(values);
+  }
+
   render() {
+    
+    {/* this property is being passed to the component
+    on behalf of redux form */}
+    const { handleSubmit } = this.props;
+
     return (
-      <form>
+      <form onSubmit={ handleSubmit(this.onSubmit.bind(this)) }>
+      {
+        // handleSubmit runs the redux form side of things, i.e., validating the form.
+        // if the form is valid, then we call the onSubmit fn, which gives us the values to work with.
+      }
       {
         // https://redux-form.com/7.3.0/docs/api/field.md/ 
         // 2 things needed for Field component: Name, component (textarea, input, radio, select)
