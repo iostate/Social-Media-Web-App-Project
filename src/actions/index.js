@@ -52,7 +52,7 @@ export function fetchPost(id) {
 }
 
 /**
- * Deletes a post from the API. 
+ * Deletes a post from the API and navigates user back to PostsIndex.
  * @param {*} id ID of the post that will be deleted. 
  */
 export function deletePost(id, callback) {
