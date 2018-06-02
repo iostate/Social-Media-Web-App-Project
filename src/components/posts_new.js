@@ -49,8 +49,9 @@ class PostsNew extends Component {
    * @memberof PostsNew
    */
   onSubmit(values) {
-    this.props.history.push('/'); 
-    this.props.createPost(values);
+    this.props.createPost(values, () => {
+      this.props.history.push('/'); 
+    });
   }
 
   render() {
