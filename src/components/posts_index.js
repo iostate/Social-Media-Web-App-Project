@@ -44,6 +44,6 @@ function mapStateToProps(state) {
 	return { posts: state.posts };
 }
 
-// Instead of using mapDispatchToProps, we pass in the
-// action call and connect takes care of the rest for us. 
+// Instead of using mapDispatchToProps for the 2nd argument, simply
+// pass in the action creator.  
 export default connect(mapStateToProps, { fetchPosts })(PostsIndex);

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { func } from 'prop-types';
+// import { func } from 'prop-types';
 
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';

@@ -8,6 +8,7 @@ class PostsNew extends Component {
 
   /**
    * A generalized function that renders JSX for Field components. 
+   * See documentation: https://redux-form.com/6.7.0/docs/api/field.md/
    * @param {*} field Contains event handlers and other things for the component 
    * 	property of the Field component. The big picture is that field 
    * 	parameter CONNECTS the JSX that renders the Field component with 
@@ -89,7 +90,6 @@ class PostsNew extends Component {
         <button className="btn btn-primary" type="submit">Submit</button>
         <Link className="btn btn-danger" to="/">Cancel</Link>
       </form> 
-     
     );
   }
 }
