@@ -1,6 +1,6 @@
 # modern_react_redux_sect9
 
-A simple redux example which displays information of books.
+A simple React w/ Redux application that allows a user to upload or delete a post.
 
 ### Getting Started
 
